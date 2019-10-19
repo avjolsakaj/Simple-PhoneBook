@@ -1,15 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
 namespace PhoneBook.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class PhoneBookController : ControllerBase
     {
+        /// <summary>
+        /// Just a test to get all information
+        /// </summary>
+        /// <returns></returns>
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
