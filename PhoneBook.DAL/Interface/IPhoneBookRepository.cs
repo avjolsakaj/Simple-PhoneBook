@@ -16,5 +16,7 @@ namespace PhoneBook.DAL.Interface
         bool Delete(int id);
 
         List<Type> GetTypes();
+
+        User AddNumber(User user);
     }
 }

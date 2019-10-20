@@ -73,6 +73,20 @@ namespace PhoneBook.Controllers
 
             return result;
         }
+        
+        /// <summary>
+        /// Add new number in Phone Book
+        /// </summary>
+        /// <param name="phoneBook"> Phone Book Entity </param>
+        /// <returns> Created Phone Book </returns>
+        // POST api/values
+        [HttpPost("AddNumber")]
+        public PhoneBookOutDTO AddNumber([FromBody] PhoneBookInDTO phoneBook)
+        {
+            var result = _phoneBookService.AddNumber(phoneBook);
+
+            return result;
+        }
 
         /// <summary>
         /// Update Phone book

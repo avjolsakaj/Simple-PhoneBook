@@ -36,6 +36,7 @@ namespace PhoneBook.BLL.Implementation
                 Lastname = x.LastName,
                 NumberInfo = x.UserTypes.Select(y => new NumberInfoOutDTO
                 {
+                    Id = y.Id,
                     Number = y?.Number ?? string.Empty,
                     Type = y?.Type?.Name ?? string.Empty
                 }).ToList()
@@ -90,7 +91,6 @@ namespace PhoneBook.BLL.Implementation
             return UserToPhoneBookConverter(createdUser);
         }
 
-
         public PhoneBookOutDTO Put(PhoneBookInDTO phoneBook)
         {
             var user = PhoneBookToUser(phoneBook);
@@ -115,6 +115,7 @@ namespace PhoneBook.BLL.Implementation
                 Lastname = user.LastName,
                 NumberInfo = user.UserTypes.Select(x => new NumberInfoOutDTO
                 {
+                    Id = x.Id,
                     Number = x?.Number ?? string.Empty,
                     Type = x?.Type?.Name ?? string.Empty
                 }).ToList()
@@ -130,11 +131,21 @@ namespace PhoneBook.BLL.Implementation
                 LastName = phoneBook.Lastname,
                 UserTypes = phoneBook.NumberInfo.Select(x => new UserType
                 {
+                    Id = x.Id,
                     Number = x.Number,
                     TypeId = x.TypeId
                 }).ToList(),
                 Deleted = phoneBook.Deleted
             };
+        }
+
+        public PhoneBookOutDTO AddNumber(PhoneBookInDTO phoneBook)
+        {
+            var user = PhoneBookToUser(phoneBook);
+
+            var createdUser = _phoneBookRepository.AddNumber(user);
+
+            return UserToPhoneBookConverter(createdUser);
         }
     }
 }

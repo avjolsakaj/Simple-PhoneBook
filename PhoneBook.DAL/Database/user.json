@@ -3,13 +3,34 @@
     "Id": 1,
     "FirstName": "Avjol",
     "LastName": "Sakaj",
-    "Deleted": true,
+    "Deleted": false,
     "UserTypes": []
   },
   {
     "Id": 2,
     "FirstName": "Amarildo",
     "LastName": "Sakaj",
+    "Deleted": false,
+    "UserTypes": []
+  },
+  {
+    "Id": 3,
+    "FirstName": "First",
+    "LastName": "Last",
+    "Deleted": false,
+    "UserTypes": []
+  },
+  {
+    "Id": 4,
+    "FirstName": "string",
+    "LastName": "string",
+    "Deleted": true,
+    "UserTypes": []
+  },
+  {
+    "Id": 5,
+    "FirstName": "Test5",
+    "LastName": "Test5",
     "Deleted": false,
     "UserTypes": []
   }

@@ -11,6 +11,8 @@ namespace PhoneBook.BLL.Interface
 
         PhoneBookOutDTO Post(PhoneBookInDTO phoneBook);
 
+        PhoneBookOutDTO AddNumber(PhoneBookInDTO phoneBook);
+
         PhoneBookOutDTO Put(PhoneBookInDTO phoneBook);
 
         bool Delete(int id);
