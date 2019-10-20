@@ -1,0 +1,17 @@
+[
+  {
+    "Id": 1,
+    "Name": "Work",
+    "Deleted": false
+  },
+  {
+    "Id": 2,
+    "Name": "Cellphone",
+    "Deleted": false
+  },
+  {
+    "Id": 3,
+    "Name": "Home",
+    "Deleted": false
+  }
+]

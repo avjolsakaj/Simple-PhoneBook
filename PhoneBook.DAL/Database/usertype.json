@@ -1,0 +1,82 @@
+[
+  {
+    "Id": 1,
+    "TypeId": 1,
+    "UserId": 1,
+    "Number": "0672000176",
+    "Deleted": true,
+    "User": {
+      "Id": 1,
+      "FirstName": "Avjol",
+      "LastName": "Sakaj",
+      "Deleted": true,
+      "UserTypes": []
+    },
+    "Type": {
+      "Id": 1,
+      "Name": "Work",
+      "Deleted": false,
+      "UserTypes": []
+    }
+  },
+  {
+    "Id": 3,
+    "TypeId": 2,
+    "UserId": 1,
+    "Number": "0672000176",
+    "Deleted": true,
+    "User": {
+      "Id": 1,
+      "FirstName": "Avjol",
+      "LastName": "Sakaj",
+      "Deleted": true,
+      "UserTypes": []
+    },
+    "Type": {
+      "Id": 2,
+      "Name": "Cellphone",
+      "Deleted": false,
+      "UserTypes": []
+    }
+  },
+  {
+    "Id": 4,
+    "TypeId": 1,
+    "UserId": 2,
+    "Number": "0676767000",
+    "Deleted": false,
+    "User": {
+      "Id": 0,
+      "FirstName": null,
+      "LastName": null,
+      "Deleted": false,
+      "UserTypes": []
+    },
+    "Type": {
+      "Id": 0,
+      "Name": null,
+      "Deleted": false,
+      "UserTypes": []
+    }
+  },
+  {
+    "Id": 5,
+    "TypeId": 2,
+    "UserId": 2,
+    "Number": "0767676767",
+    "Deleted": false,
+    "User": {
+      "Id": 0,
+      "FirstName": null,
+      "LastName": null,
+      "Deleted": false,
+      "UserTypes": []
+    },
+    "Type": {
+      "Id": 0,
+      "Name": null,
+      "Deleted": false,
+      "UserTypes": []
+    }
+  }
+]

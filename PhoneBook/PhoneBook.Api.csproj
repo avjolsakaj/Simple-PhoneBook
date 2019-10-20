@@ -18,4 +18,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PhoneBook.BLL\PhoneBook.BLL.csproj" />
+    <ProjectReference Include="..\PhoneBook.Core\PhoneBook.DTO.csproj" />
+  </ItemGroup>
+
 </Project>

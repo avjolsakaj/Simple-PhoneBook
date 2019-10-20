@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using PhoneBook.BLL.Interface;
+using PhoneBook.DTO.DTO;
 
 namespace PhoneBook.Controllers
 {
@@ -8,40 +11,102 @@ namespace PhoneBook.Controllers
     [ApiController]
     public class PhoneBookController : ControllerBase
     {
+        private readonly IPhoneBookService _phoneBookService;
+
+        public PhoneBookController(IPhoneBookService phoneBookService)
+        {
+            _phoneBookService = phoneBookService;
+        }
+
         /// <summary>
-        /// Just a test to get all information
+        /// Get all Phone Books ordered
         /// </summary>
-        /// <returns></returns>
+        /// <param name="orderByFirstName"> Firstname or Lastname </param>
+        /// <param name="asc"> True for asc and false for desc </param>
+        /// <returns>List of phone books</returns>
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<List<PhoneBookOutDTO>> Get(bool orderByFirstName = true, bool asc = true)
         {
-            return new string[] { "value1", "value2" };
+            var result = _phoneBookService.GetAllOrderedBy(orderByFirstName, asc).ToList();
+
+            return result;
         }
 
+        /// <summary>
+        /// Get all Phone Books types
+        /// </summary>
+        /// <returns>List of phone books types</returns>
+        // GET api/values
+        [HttpGet("GetTypes")]
+        public ActionResult<IEnumerable<TypesOutDTO>> GetTypes()
+        {
+            var result = _phoneBookService.GetTypes();
+
+            return result;
+        }
+
+        /// <summary>
+        /// Get Phone Book by id
+        /// </summary>
+        /// <param name="id"> Specified id for phone book </param>
+        /// <returns> Phone Book </returns>
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<PhoneBookOutDTO> Get(int id)
         {
-            return "value";
+            var result = _phoneBookService.Get(id);
+
+            return result;
         }
 
+        /// <summary>
+        /// Create Phone Book
+        /// </summary>
+        /// <param name="phoneBook"> Phone Book Entity </param>
+        /// <returns> Created Phone Book </returns>
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public PhoneBookOutDTO Post([FromBody] PhoneBookInDTO phoneBook)
         {
+            var result = _phoneBookService.Post(phoneBook);
+
+            return result;
         }
+
+        /// <summary>
+        /// Update Phone book
+        /// </summary>
+        /// <param name="id"> Phone Book id </param>
+        /// <param name="phoneBook"> Phone Book Entity </param>
+        /// <returns> Update phone book </returns>
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult<PhoneBookOutDTO> Put(int id, [FromBody] PhoneBookInDTO phoneBook)
         {
+            if (id != phoneBook.Id)
+            {
+                return new BadRequestObjectResult("Id is not right");
+            }
+
+            var result = _phoneBookService.Put(phoneBook);
+
+            return result;
         }
 
+        /// <summary>
+        /// Delete Phone Book
+        /// </summary>
+        /// <param name="id"> Phone Book Id </param>
+        /// <returns> True if deleted </returns>
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public bool Delete(int id)
         {
+            var result = _phoneBookService.Delete(id);
+
+            return result;
         }
     }
 }

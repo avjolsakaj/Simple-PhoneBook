@@ -1,0 +1,16 @@
+[
+  {
+    "Id": 1,
+    "FirstName": "Avjol",
+    "LastName": "Sakaj",
+    "Deleted": true,
+    "UserTypes": []
+  },
+  {
+    "Id": 2,
+    "FirstName": "Amarildo",
+    "LastName": "Sakaj",
+    "Deleted": false,
+    "UserTypes": []
+  }
+]

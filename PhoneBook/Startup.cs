@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using PhoneBook.BLL.Implementation;
+using PhoneBook.BLL.Interface;
+using PhoneBook.DAL.Implementation;
+using PhoneBook.DAL.Interface;
 
 namespace PhoneBook
 {
@@ -23,7 +27,11 @@ namespace PhoneBook
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            // Register the Swagger generator, defining 1 or more Swagger documents
+            // DI
+            services.AddScoped<IPhoneBookService, PhoneBookService>();
+            services.AddScoped<IPhoneBookRepository, PhoneBookRepository>();
+
+            // Register the Swagger generator
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
